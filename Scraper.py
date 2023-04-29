@@ -13,23 +13,51 @@ driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 driver.get('https://www.collegesimply.com/')
 
 # Wait for the search bar to be located on the page
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 5)
 search_bar = wait.until(EC.presence_of_element_located((By.ID, "searchbar-nav")))
 
 # Click on the search bar to activate it
 search_bar.click()
 
-# Type "the" into the search bar
 search_bar.send_keys("West Chester University")
 
+time.sleep(1)
 
-# Press Enter to submit the search
-#search_bar.send_keys(Keys.RETURN)
 
-# Wait for the page to load
-time.sleep(10)
+results = driver.find_element_by_css_selector("#searchbar-nav-results-container a")
+time.sleep(2)
+results.click()
 
-# Extract the page title
-title = driver.title
-print(title)
+current_url = driver.current_url
+new_url = current_url + 'price/'
+print(new_url)
+time.sleep(1)
 
+driver.get(new_url)
+
+instate = driver.find_element_by_xpath('//div[@class="h2 mb-4"]')
+instate = instate.text
+
+tuition = driver.find_element_by_xpath('//td[@class="text-right font-weight-bold"]')
+tuition = tuition.text
+
+element = driver.find_element_by_xpath("//tr[2]/td[2]")
+bookcost = element.text
+
+element = driver.find_element_by_xpath("//tr[3]/td[2]")
+other_fees = element.text
+
+element = driver.find_element_by_xpath("//tr[4]/td[2]")
+room_board = element.text
+
+element = driver.find_element_by_xpath("//tr[5]/td[2]")
+other_expenses = element.text
+
+
+print(instate, tuition, bookcost, other_fees, room_board, other_expenses)
+
+time.sleep(2)
+
+
+
+# locate each row in the table and extract the cost information
