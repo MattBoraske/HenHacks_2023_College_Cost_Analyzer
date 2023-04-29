@@ -47,6 +47,8 @@ def scrape_prices(college):
     element = driver.find_element_by_xpath("//tr[5]/td[2]")
     other_expenses = element.text
 
+    
+
     print(instate, tuition, bookcost, other_fees, room_board, other_expenses)
     
     driver.quit()
