@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-def scrape_wcu_prices():
+def scrape_prices():
     # Create a ChromeDriver instance using ChromeDriverManager
     driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 
