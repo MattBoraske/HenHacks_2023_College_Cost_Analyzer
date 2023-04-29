@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-def scrape_prices():
+def scrape_prices(college):
     # Grabs webdriver
     driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 
@@ -19,18 +19,13 @@ def scrape_prices():
 
     # Click on the search bar to activate it
     search_bar.click()
-    search_bar.send_keys("West Chester University")
-
-    time.sleep(1)
+    search_bar.send_keys(college)
 
     results = driver.find_element_by_css_selector("#searchbar-nav-results-container a")
-    time.sleep(1)
     results.click()
 
     current_url = driver.current_url
     new_url = current_url + 'price/'
-    print(new_url)
-    time.sleep(1)
 
     driver.get(new_url)
     # Grabs in-state price
@@ -53,11 +48,9 @@ def scrape_prices():
     other_expenses = element.text
 
     print(instate, tuition, bookcost, other_fees, room_board, other_expenses)
-
-    time.sleep(2)
     
     driver.quit()
     
     return instate, tuition, bookcost, other_fees, room_board, other_expenses
 
-scrape_prices()
+scrape_prices("University of California, Berkeley")
