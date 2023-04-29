@@ -1,4 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-Some placeholder text
+<div class="container">
+    <form method="post" action="{{ url_for('process_input') }}">
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="college-name" name="college-name" placeholder="Enter your college name">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="college-major" name="college-major" placeholder="Enter your major">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="residence" id="in-state" value="In-State" checked>
+                <label class="form-check-label" for="in-state">In-State</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="residence" id="out-of-state" value="out-of-state">
+                <label class="form-check-label" for="out-of-state">Out-Of-State</label>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
 {% endblock %}
