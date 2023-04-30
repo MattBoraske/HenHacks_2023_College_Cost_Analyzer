@@ -16,6 +16,7 @@ response = requests.get(base_url, params=params)
 
 if response.status_code == 200:
     data = response.json()
-    print(data)
+    earnings = data['results'][0]['latest.programs.cip_4_digit'][1]['earnings']['1_yr']['overall_median_earnings']
+    print(earnings)
 else:
     print(f'Error: {response.status_code}')
