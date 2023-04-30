@@ -2,10 +2,11 @@ import requests
 from API_queries.schoolCodes import SchoolCodeDict
 
 api_key = 'PP7IoOsMzwaWH8g3z9fWzP3SqVTOPk8qr2ugcSu9'
+cip = '2601'
 
 def earningsQuery(schoolname):
     school_id = SchoolCodeDict.dct[schoolname]  # Replace with the specific school's ID
-    cip_code = '1107'
+    cip_code = cip
 
     base_url = 'https://api.data.gov/ed/collegescorecard/v1/schools'
 
@@ -20,8 +21,12 @@ def earningsQuery(schoolname):
 
     if response.status_code == 200:
         data = response.json()
-        earnings = data['results'][0]['latest.programs.cip_4_digit'][1]['earnings']['1_yr']['overall_median_earnings']
-        return earnings
+        level_3_earnings = None
+        for result in data['results']:
+            for program in result['latest.programs.cip_4_digit']:
+                if program['credential']['level'] == 3:
+                    level_3_earnings = program['earnings']['1_yr']['overall_median_earnings']
+        return level_3_earnings if level_3_earnings else 'No data available'
     else:
         error = f'Error: {response.status_code}'
         return error
