@@ -20,7 +20,7 @@ def process_input():
     print(f"Residence: {residence}")
     print("\n")
 
-    earnings = earningsQuery(college_name)
+    earnings = earningsQuery(college_name, college_major)
     tuition = tuitionQuery(college_name, residence)
 
     return f"Input received! Earnings is: {earnings}. Tuition is: {tuition}"

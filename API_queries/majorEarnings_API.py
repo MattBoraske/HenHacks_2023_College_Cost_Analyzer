@@ -1,12 +1,12 @@
 import requests
 from API_queries.Dictionaries.schoolCodes import SchoolCodeDict
+from API_queries.Dictionaries.CIPCodes import CIPCodeDict
 
 api_key = 'PP7IoOsMzwaWH8g3z9fWzP3SqVTOPk8qr2ugcSu9'
-cip = '2601'
 
-def earningsQuery(schoolname):
+def earningsQuery(schoolname, major):
     school_id = SchoolCodeDict.dct[schoolname]  # Replace with the specific school's ID
-    cip_code = cip
+    cip_code = CIPCodeDict.dct[major]
 
     base_url = 'https://api.data.gov/ed/collegescorecard/v1/schools'
 
