@@ -7,6 +7,10 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 def scrape_prices(college):
+
+    #https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,school.name,2013.student.size
+
+
     # Grabs webdriver
     driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 
@@ -17,9 +21,13 @@ def scrape_prices(college):
     wait = WebDriverWait(driver, 2)
     search_bar = wait.until(EC.presence_of_element_located((By.ID, "searchbar-nav")))
 
+
     # Click on the search bar to activate it
     search_bar.click()
-    search_bar.send_keys(college)
+    search_bar.send_keys(college[0:len(college)//2])
+    search_bar.send_keys(college[len(college)//2:])
+    time.sleep(5)
+
 
     results = driver.find_element_by_css_selector("#searchbar-nav-results-container a")
     results.click()
@@ -47,7 +55,7 @@ def scrape_prices(college):
     element = driver.find_element_by_xpath("//tr[5]/td[2]")
     other_expenses = element.text
 
-    
+    #Grabs out of state 
 
     print(instate, tuition, bookcost, other_fees, room_board, other_expenses)
     
@@ -55,4 +63,4 @@ def scrape_prices(college):
     
     return instate, tuition, bookcost, other_fees, room_board, other_expenses
 
-scrape_prices("University of California, Berkeley")
+scrape_prices("West Chester UNiversity")
