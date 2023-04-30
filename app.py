@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import redirect, url_for, request
 from flask import Flask, render_template
+from API_queries.newEarnings import earningsQuery
 
 app = Flask(__name__)
 
@@ -16,8 +17,11 @@ def process_input():
     print(f"College: {college_name}")
     print(f"Major: {college_major}")
     print(f"Residence: {residence}")
+    print("\n")
 
-    return "Input received!"
+    earnings = earningsQuery(college_name)
+
+    return f"Input received! Earnings is: {earnings}"
 
 if __name__ == "__main__":
     app.run(debug=True)
