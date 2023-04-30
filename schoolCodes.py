@@ -1,4 +1,3 @@
-
 dct = {"Alabama A & M University": 100654,
 "University of Alabama at Birmingham": 100663,
 "Amridge University": 100690,
