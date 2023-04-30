@@ -1,7 +1,7 @@
 import requests
 
 api_key = 'PP7IoOsMzwaWH8g3z9fWzP3SqVTOPk8qr2ugcSu9'
-school_id = '130943'  # Replace with the specific school's ID
+school_id = '216764'  # Replace with the specific school's ID
 cip_code = '1101'
 
 base_url = 'https://api.data.gov/ed/collegescorecard/v1/schools'

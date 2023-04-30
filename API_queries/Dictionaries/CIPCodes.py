@@ -1,6 +1,6 @@
 class CIPCodeDict:
   dct = {
-    "Agriculture, General": "0100",
+  "Agriculture, General": "0100",
   "Agricultural Business and Management": "0101",
   "Animal Sciences": "0109",
   "Food Science and Technology": "0110",

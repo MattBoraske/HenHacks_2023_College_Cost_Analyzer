@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
+    <br>
     <form method="post" action="{{ url_for('process_input') }}">
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row mx-auto">
+            <div class="col-4 ml-auto">
                 <input type="text" class="form-control" id="college-name" name="college-name" placeholder="Enter your college name">
             </div>
-            <div class="col-md-6">
-                <input type="text" class="form-control" id="college-major" name="college-major" placeholder="Enter your major">
+            <div class="col-4 mr-auto">
+                <input type="text" class="form-control" id="college-major" name="college-major" placeholder="Enter your major"">
             </div>
         </div>
         <br>
@@ -26,5 +27,46 @@
             <input type="submit" value="Submit">
         </div>
     </form>
+</div>
+<br>
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>How to Use</h1>
+                <p>
+                    This tool provides a Return-On-Investment (ROI) analysis for the completion of
+                    a bachelor's degree in a given major at a United States college. Simply enter
+                    the school and major to get a bar chart that compares the average cost of attendance
+                    for 4 years with the average salary for graduates of that major as well as a table that
+                    shows how many years it will take to pay off the cost of attendance depending on 
+                    the percentage of salary set aside.
+                </p>
+                <p>
+                    The school and major MUST be selected from the lists provided below.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h3><a href="{{ url_for('schoolsList') }}">List of Schools</a></h3>
+            </div>
+            <div class="col-md-6 text-center">
+                <h3><a href="{{ url_for('majorsList') }}">List of Majors</a></h3>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>How it Works</h1>
+                <p>
+                    This tool uses data from the <a href="https://collegescorecard.ed.gov/data/">College Scorecard</a> 
+                    to calculate the average cost of attendance for 4 years at a given school and the average salary
+                    for graduates of a given major. The Return-On-Investment is calculated by dividing a percentage of the average salary by the 4-year cost of attendance.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
