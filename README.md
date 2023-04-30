@@ -1,4 +1,4 @@
-# HenHacks_HackToTheFuture
+# HenHacks 2023 - College Cost Analyzer
 Team HackToTheFuture's repository for HenHacks 2023 Hackathon
 
 This project was created as a submission for the [Improving Access to Information for the Underserved Hack](https://www.henhackshackathon.com/hack-categories).
