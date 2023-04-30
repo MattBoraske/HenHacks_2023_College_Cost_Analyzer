@@ -8,7 +8,7 @@ base_url = 'https://api.data.gov/ed/collegescorecard/v1/schools'
 params = {
     'api_key': api_key,
     'id': school_id,
-    'fields': 'school.name,programs.cip_4_digit.earnings.1_yr.overall_median_earnings,programs.cip_4_digit.earnings.highest.3_yr.overall_median_earnings',  # Replace the year (2017) with the desired year
+    'fields': 'school.name,programs.cip_4_digit.earnings.1_yr.overall_median_earnings,programs.cip_4_digit.credential.level',  # Replace the year (2017) with the desired year
     'latest.programs.cip_4_digit.code': cip_code
 }
 
