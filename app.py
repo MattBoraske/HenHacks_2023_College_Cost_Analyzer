@@ -23,7 +23,10 @@ def process_input():
     earnings = earningsQuery(college_name, college_major)
     tuition = tuitionQuery(college_name, residence)
 
-    return f"Input received! Earnings is: {earnings}. Tuition is: {tuition}"
+    #Make a bar graph of earnings and tuition
+    print(f"Input received! Earnings is: {earnings}. Tuition is: {tuition}")
+
+    return render_template("chartDisplay.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
