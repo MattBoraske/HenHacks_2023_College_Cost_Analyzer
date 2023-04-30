@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import redirect, url_for, request
 from flask import Flask, render_template
-from API_queries.newEarnings import earningsQuery
+from API_queries.majorEarnings_API import earningsQuery
 from API_queries.tuition_API import tuitionQuery
 
 app = Flask(__name__)

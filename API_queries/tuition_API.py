@@ -1,5 +1,5 @@
 import requests
-from API_queries.schoolCodes import SchoolCodeDict
+from API_queries.Dictionaries.schoolCodes import SchoolCodeDict
 
 api_key = 'PP7IoOsMzwaWH8g3z9fWzP3SqVTOPk8qr2ugcSu9'
 
