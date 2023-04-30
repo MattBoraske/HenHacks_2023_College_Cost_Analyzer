@@ -19,6 +19,7 @@ def createChart(cost, majorSalary, college, major, residence):
     if os.path.exists(file_path):
         os.remove(file_path)
     plt.savefig(file_path)
+    plt.clf()
 
     # Salary ROI Table
     salary_ROI = pd.DataFrame({'Salary %': ['5', '10', '15', '20', '25', '30', '35', '40', '45', '50'], 
