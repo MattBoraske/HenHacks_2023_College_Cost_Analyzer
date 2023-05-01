@@ -4,15 +4,31 @@ import os
 
 def createChart(cost, majorSalary, college, major, residence):
     # Create dataframe from input data 
-    df = pd.DataFrame({'Item': [f'Cost of Attendance ({residence})', 'Annual Average Salary'], 'Money': [cost*4, majorSalary]})
+    df = pd.DataFrame({'Item': [f'4-Year Cost of Attendance \n({residence})', 'Annual Average Salary'], 'Money': [cost*4, majorSalary]})
 
     # Set the backend to 'agg'
     plt.switch_backend('agg')
 
+    # Make background of chart transparent
+    fig, ax = plt.subplots()
+    fig.patch.set_alpha(0.0)
+    ax.set_facecolor((0, 0, 0, 0))
+
     # Plot the bar chart
-    plt.bar(df['Item'], df['Money'].astype(int))
-    plt.ylabel('USD ($)')
-    plt.title(f"Bachelor's Degree in \n{major} at {college}")
+    ax.bar(df['Item'], df['Money'].astype(int), color='green')
+
+    # Title
+    title = ax.set_title(f"Bachelor's Degree in \n{major} at {college}")
+    title.set_fontweight('bold')
+    title.set_fontstyle('italic')
+
+    # X-Axis Labels
+    for label in ax.get_xticklabels():
+        label.set_weight('bold')
+
+    # Y-Axis Labels
+    ylabel = ax.set_ylabel("USD ($)")
+    ylabel.set_fontweight('bold')
 
     # Save the image of the bar chart
     file_path='static/bar_chart.png'
